@@ -1,0 +1,66 @@
+.numpad_button {
+    background-color: #F2EEED;
+    margin: 5px;
+    height: 50px;
+    width: 50px;
+}
+
+#numbers {
+    display: flex;
+    width: 180px;
+    height: 240px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+button[data-value="CE"] {
+    background-color: #F2EEED;
+    margin-bottom: 10px;
+    height: 20px;
+    width: 50px;
+}
+
+#calc_buttons {
+    display: flex;
+}
+
+#operators {
+    display: flex;
+    flex-direction: column;
+}
+
+.operator_button {
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    background-color: #59A6E0;
+}
+
+button[data-value="="] {
+    background-color: #FFA147;
+}
+
+#blackshell {
+    background-color: black;
+    width:270px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#display {
+    background-color: #4B8881;
+    width: 200px;
+    height: 25px;
+    padding-left: 5px;
+    margin-bottom: 20px;
+}
+
+#upperDisplay {
+    background-color: #4B8881;
+    width: 200px;
+    height: 25px;
+    padding-left: 5px;
+}
