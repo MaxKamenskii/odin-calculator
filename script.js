@@ -1,5 +1,6 @@
 const buttons = document.querySelectorAll(".numpad_button");
 const display = document.getElementById("display");
+let dotPressed = false;
 
 buttons.forEach(button => {
     const value = button.getAttribute("data-value");
@@ -9,6 +10,12 @@ buttons.forEach(button => {
         // clear display when CE is pressed
         if(value === "CE"){
             display.innerText = ""
+            dotPressed = false;
+        } else if(value === ".") {
+            if(dotPressed === false){
+                display.innerText += value;
+                dotPressed = true;
+            }
         } else {
             display.innerText += value;
         }
