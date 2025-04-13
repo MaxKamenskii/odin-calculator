@@ -20,6 +20,31 @@ button[data-value="CE"] {
     width: 50px;
 }
 
+button[data-value="+"]{
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    background-color: #59A6E0;
+}
+button[data-value="-"]{
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    background-color: #59A6E0;
+}
+button[data-value="*"]{
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    background-color: #59A6E0;
+}
+button[data-value="/"]{
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    background-color: #59A6E0;
+}
+
 #calc_buttons {
     display: flex;
 }
@@ -27,6 +52,7 @@ button[data-value="CE"] {
 #operators {
     display: flex;
     flex-direction: column;
+    
 }
 
 .operator_button {
