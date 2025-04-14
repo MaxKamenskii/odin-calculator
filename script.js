@@ -4,6 +4,7 @@ let dotPressed = false;
 const operators = ["+", "-", "/", "*"]
 let operatorPressed = false;
 let result;
+let currentValue;
 
 function add(a, b){
     result = a + b;
@@ -72,6 +73,7 @@ buttons.forEach(button => {
 
         console.log("Button pressed:", value);
         // clear display when CE is pressed
+
         if(value === "CE"){
             display.innerText = ""
             dotPressed = false;
@@ -85,12 +87,17 @@ buttons.forEach(button => {
                 display.innerText += value;
                 dotPressed = false;
                 operatorPressed = true;
-            } 
+            }
         } else if(value === "=") {
             const operateResult = operate()
             if(operateResult !== undefined){
                 display.innerText = operateResult;
             }
+            dotPressed = false;
+            operatorPressed = false;
+        } else if(display.innerText == result) {
+            display.innerText = ""
+            display.innerText += value;
             dotPressed = false;
             operatorPressed = false;
         } else {
