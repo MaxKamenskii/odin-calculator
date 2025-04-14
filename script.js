@@ -38,6 +38,16 @@ function operate(){
   console.log(`Operands are: ${operands}`)
   const firstOperand = parseFloat(operands[0])
   const secondOperand = parseFloat(operands[1])
+  // prevent the lack of operands
+  if (isNaN(firstOperand) || isNaN(secondOperand)) {
+    display.innerText = "Please enter both numbers";
+    return;
+  }
+  // prevent dividing by zero
+  if (operator === "/" && secondOperand === 0) {
+    display.innerText = "Cannot divide by zero";
+    return;
+  }
   if(operator === "+"){
     return add(firstOperand, secondOperand)
   }
@@ -77,8 +87,12 @@ buttons.forEach(button => {
                 operatorPressed = true;
             } 
         } else if(value === "=") {
-            operate()
-            display.innerText = result;
+            const operateResult = operate()
+            if(operateResult !== undefined){
+                display.innerText = operateResult;
+            }
+            dotPressed = false;
+            operatorPressed = false;
         } else {
             display.innerText += value;
             operatorPressed = false;
