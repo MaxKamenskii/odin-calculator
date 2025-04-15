@@ -4,7 +4,6 @@ let dotPressed = false;
 const operators = ["+", "-", "/", "*"]
 let operatorPressed = false;
 let result;
-let currentValue;
 
 function add(a, b){
     result = a + b;
@@ -27,6 +26,13 @@ function divide(a, b){
     return result;
 }
 
+// function hasTwoOperands(expression) {
+//     const operatorMatch = expression.match(/[+\-*/]/)
+//     if(!operatorMatch) return false;
+//     const parts = expression.split(operatorMatch[0]);
+//     return parts.length === 2 && parts[1] !== "";
+// }
+
 function operate(){
     const operatorMatch = display.innerText.match(/[+\-*/]/);
   if (!operatorMatch) {
@@ -35,7 +41,7 @@ function operate(){
   }
   const operator = operatorMatch[0];
   console.log(`Operator is: ${operator}`)
-  let operands = display.innerText.split(/[+\-*/]/)
+  let operands = display.innerText.split(operator)
   console.log(`Operands are: ${operands}`)
   const firstOperand = parseFloat(operands[0])
   const secondOperand = parseFloat(operands[1])
@@ -83,11 +89,23 @@ buttons.forEach(button => {
                 dotPressed = true;
             }
         } else if(operators.includes(value)) {
-            if(!operators.includes(lastChar)) {
+            operatorMatch = display.innerText.match(/[+\-*/]/);
+            if (operatorMatch) {
+                const parts = display.innerText.split(operatorMatch[0]);
+                if(parts.length === 2 && parts[1] !== "") {
+                    console.log("Operator was pressed before");
+                    const operateResult = operate();
+                    if(operateResult !== undefined){
+                        display.innerText = operateResult + value;
+                    }
+                } else if (!operators.includes(lastChar)) {
+                    display.innerText += value;
+                }
+            } else if (!operators.includes(lastChar)) {
                 display.innerText += value;
-                dotPressed = false;
-                operatorPressed = true;
             }
+            dotPressed = false;
+            operatorPressed = true;
         } else if(value === "=") {
             const operateResult = operate()
             if(operateResult !== undefined){
@@ -100,7 +118,7 @@ buttons.forEach(button => {
             display.innerText += value;
             dotPressed = false;
             operatorPressed = false;
-        } else {
+        }  else {
             display.innerText += value;
             operatorPressed = false;
         } 
