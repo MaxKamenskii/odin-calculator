@@ -13,6 +13,7 @@ body {
     height: 50px;
     width: 50px;
     color: black;
+    border: 1px solid black;
 }
 
 #numbers {
@@ -83,6 +84,7 @@ button[data-value="/"]{
 
 button[data-value="="] {
     background-color: #FFA147;
+    color: black;
 }
 
 #blackshell {
