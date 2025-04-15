@@ -12,8 +12,14 @@ body {
     margin: 5px;
     height: 50px;
     width: 50px;
+}
+
+button {
     color: black;
     border: 1px solid black;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: large;
+    cursor: pointer;
 }
 
 #numbers {
@@ -30,13 +36,13 @@ body {
 button[data-value="AC"] {
     background-color: #F2EEED;
     margin-bottom: 10px;
-    height: 20px;
+    height: 25px;
     width: 50px;
 }
 button[data-value="C"] {
     background-color: #F2EEED;
     margin-bottom: 10px;
-    height: 20px;
+    height: 25px;
     width: 50px;
 }
 
