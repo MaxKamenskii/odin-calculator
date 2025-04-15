@@ -90,8 +90,13 @@ buttons.forEach(button => {
         console.log("Button pressed:", value);
         // clear display when CE is pressed
 
-        if(value === "CE"){
+        if(value === "AC"){
             display.innerText = ""
+            dotPressed = false;
+        } else if(value === "C"){
+            let text = display.innerText;
+            text = text.substring(0, text.length - 1);
+            display.innerText = text;
             dotPressed = false;
         } else if(value === ".") {
             if(dotPressed === false){
@@ -129,7 +134,7 @@ buttons.forEach(button => {
             display.innerText += value;
             dotPressed = false;
             operatorPressed = false;
-        }  else {
+        } else {
             display.innerText += value;
             operatorPressed = false;
         } 

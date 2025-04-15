@@ -21,8 +21,17 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
+#clearbuttons{
+    display: flex;
+}
 
-button[data-value="CE"] {
+button[data-value="AC"] {
+    background-color: #F2EEED;
+    margin-bottom: 10px;
+    height: 20px;
+    width: 50px;
+}
+button[data-value="C"] {
     background-color: #F2EEED;
     margin-bottom: 10px;
     height: 20px;
