@@ -5,6 +5,23 @@ const operators = ["+", "-", "/", "*"]
 let operatorPressed = false;
 let result;
 
+function roundToFit(result) {
+    let rounded = result;
+    display.innerText = rounded;
+
+    while (
+        display.scrollWidth > display.offsetWidth &&
+        rounded.toString().includes(".") &&
+        rounded.toString().split(".")[1].length > 0
+    ) {
+        const decimals = rounded.toString().split(".")[1].length;
+        rounded = parseFloat(rounded.toFixed(decimals - 1));
+        display.innerText = rounded;
+    }
+
+    return rounded;
+}
+
 function add(a, b){
     result = a + b;
     console.log(`Result is: ${result}`)
@@ -25,13 +42,6 @@ function divide(a, b){
     console.log(`Result is: ${result}`)
     return result;
 }
-
-// function hasTwoOperands(expression) {
-//     const operatorMatch = expression.match(/[+\-*/]/)
-//     if(!operatorMatch) return false;
-//     const parts = expression.split(operatorMatch[0]);
-//     return parts.length === 2 && parts[1] !== "";
-// }
 
 function operate(){
     const operatorMatch = display.innerText.match(/[+\-*/]/);
@@ -109,7 +119,8 @@ buttons.forEach(button => {
         } else if(value === "=") {
             const operateResult = operate()
             if(operateResult !== undefined){
-                display.innerText = operateResult;
+                const rounded = roundToFit(operateResult);
+                display.innerText = rounded;
             }
             dotPressed = false;
             operatorPressed = false;
